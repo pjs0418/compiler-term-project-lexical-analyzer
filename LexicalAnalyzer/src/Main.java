@@ -12,7 +12,5 @@ public class Main {
         File file = new File("/Users/junsu/Desktop/compiler-term-project-lexical-analyzer/compiler-term-project-lexical-analyzer/LexicalAnalyzer/src/Input.java");
 
         LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer(file);
-
-        System.out.println(lexicalAnalyzer.toString());
     }
 }
