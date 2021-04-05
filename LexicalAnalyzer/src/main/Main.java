@@ -1,3 +1,5 @@
+package main;
+
 import java.io.*;
 
 public class Main {
@@ -9,8 +11,7 @@ public class Main {
             System.exit(0);
         }*/
 
-        File file = new File("/Users/junsu/Desktop/compiler-term-project-lexical-analyzer/compiler-term-project-lexical-analyzer/LexicalAnalyzer/src/Input.java");
+        File file = new File("C:\\Users\\tony1\\Desktop\\Lexical-Analyzer\\compiler-term-project-lexical-analyzer\\LexicalAnalyzer\\src\\Input.java");
 
-        LexicalAnalyzer lexicalAnalyzer = new LexicalAnalyzer(file);
     }
 }
