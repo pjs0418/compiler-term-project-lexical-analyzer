@@ -1,6 +1,7 @@
 package lexicalAnalyzer;
 
 import automaton.DFA;
+import automaton.Transition;
 import automaton.TransitionTable;
 
 import java.io.*;
@@ -11,6 +12,7 @@ public class LexicalAnalyzer {
     private String currentState;
     private String[] tokens = {"VTYPE"};
     private char popCharacter;
+    private int currentCharIdx = 0;
 
     public LexicalAnalyzer(File file) {
         this.file = file;
@@ -22,7 +24,7 @@ public class LexicalAnalyzer {
 
     public void Tokenize() throws IOException {
         String line;
-        boolean checkInput;
+        Transition transitionInput;
 
         DFA dfa = new DFA();
         TransitionTable tsTable = new TransitionTable();
@@ -32,15 +34,23 @@ public class LexicalAnalyzer {
         while ((line = br.readLine()) != null) {
             line = br.readLine();
 
-            for (int i = 0; i < line.length(); i++) {
-                this.popCharacter = line.charAt(i);
+            for (int i = 0; i < tokens.length; i++) {
 
-                for (int j = 0; j < tokens.length; j++) {
-                    if (tokens[j] == "VTYPE") {
-                        checkInput = dfa.CheckInput(popCharacter, tsTable.VTypeTable(), currentState);
+                if (tokens[i] == "VTYPE") {
+
+                    ResetState();
+
+                    for (int j = currentCharIdx; j < line.length(); j++) {
+
+                        this.popCharacter = line.charAt(j);
+
+                        transitionInput = dfa.CheckInput(popCharacter, tsTable.VTypeTable(), currentState);
+
                     }
                 }
             }
+
+
         }
     }
 }

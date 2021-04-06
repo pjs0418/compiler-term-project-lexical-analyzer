@@ -12,15 +12,15 @@ public class Transition {
         this.nextState = nextState;
     }
 
-    public String getCurrentState() {
+    public String GetCurrentState() {
         return currentState;
     }
 
-    public char getTransition() {
+    public char GetTransition() {
         return transition;
     }
 
-    public String getNextState() {
+    public String GetNextState() {
         return nextState;
     }
 }
