@@ -12,7 +12,7 @@ public class DFA {
             }
         }
 
-        return new Transition("df", 'd', "Df");
+        return new Transition("trash", 't', "trash");
     }
 
 }

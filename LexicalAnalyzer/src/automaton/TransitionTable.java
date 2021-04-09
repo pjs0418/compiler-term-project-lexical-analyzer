@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class TransitionTable {
 
     public ArrayList<Transition> VTypeTable() {
-        ArrayList<Transition> vTypeTransition = new ArrayList<Transition>();
+        ArrayList<Transition> vTypeTransition = new ArrayList<>();
 
         vTypeTransition.add(new Transition("0", 'i', "1"));
         vTypeTransition.add(new Transition("1", 'n', "2"));

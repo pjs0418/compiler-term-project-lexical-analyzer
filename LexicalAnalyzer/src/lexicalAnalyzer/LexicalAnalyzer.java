@@ -12,7 +12,7 @@ public class LexicalAnalyzer {
     private String currentState;
     private String[] tokens = {"VTYPE"};
     private char popCharacter;
-    private int currentCharIdx = 0;
+    private int currentCharIdx;
 
     public LexicalAnalyzer(File file) {
         this.file = file;
@@ -25,6 +25,7 @@ public class LexicalAnalyzer {
     public void Tokenize() throws IOException {
         String line;
         Transition transitionInput;
+        String validInput = "";
 
         DFA dfa = new DFA();
         TransitionTable tsTable = new TransitionTable();
@@ -33,6 +34,7 @@ public class LexicalAnalyzer {
 
         while ((line = br.readLine()) != null) {
             line = br.readLine();
+            this.currentCharIdx = 0;
 
             for (int i = 0; i < tokens.length; i++) {
 
@@ -45,6 +47,17 @@ public class LexicalAnalyzer {
                         this.popCharacter = line.charAt(j);
 
                         transitionInput = dfa.CheckInput(popCharacter, tsTable.VTypeTable(), currentState);
+
+                        if(transitionInput.GetCurrentState() == "trash") {
+
+
+
+                        }
+                        else {
+                            currentState = transitionInput.GetNextState();
+                            validInput.concat(Character.toString(popCharacter));
+                            continue;
+                        }
 
                     }
                 }
